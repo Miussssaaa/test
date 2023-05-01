@@ -5,7 +5,7 @@ public class Main {
 	//第一引数 : 表示したい文字
 	//第二引数 : 表示したい回数
 
-	public static void prints(String a, int b) {
+	public static void prints(Object a, Object b) {
 
 		for(int i = 0; i<b; i++) {
 			System.out.println(a);
