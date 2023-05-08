@@ -5,9 +5,9 @@ public class Main {
 	//第一引数 : 表示したい文字
 	//第二引数 : 表示したい回数
 
-	public static void prints(Object a, Object b) {
+	public static void prints(String a, int b) {
 
-		for(int i = 0; i<(Integer)b; i++) {
+		for(int i = 0; i<b; i++) {
 			System.out.println(a);
 		}
 
@@ -15,9 +15,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//String型はInteger型に変換できない
-		//ダウンキャストをしている
-		prints(5,"犬");
+		//型を指定することで実行前にエラーを確認でき、対処できる
+		//予期しない値が入ることを抑制する(何でも入るObject型の特質)
+		prints("犬",5);
 
 	}
 
