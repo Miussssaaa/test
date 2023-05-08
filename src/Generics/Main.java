@@ -3,7 +3,10 @@ package Generics;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
+
+		Pocket p = new Pocket();
+
+		p.put("1111");
 
 	}
 
