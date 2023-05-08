@@ -4,6 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		//向こうのクラスに移動して、EでStringが当てはめられる事になる
 		Pocket<String> p = new Pocket();
 
 		//データの入力
