@@ -15,7 +15,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		prints("犬",5);
+		//String型はInteger型に変換できない
+		//ダウンキャストをしている
+		prints(5,"犬");
 
 	}
 
