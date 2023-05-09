@@ -5,7 +5,7 @@ public class Account {
 
 	private String accountNum; //口座番号 (問題点:違う文字が入る、桁数が違う)
 	private int zandaka; //残高
-	private accountType accountType; //預金種類(普通、当座、定期) (問題点 : 違う文字列が入る)
+	private accountType accountType; //預金種類(普通、当座、定期) (問題点 : 違う文字が入る → 列挙)
 
 
 	//コンストラクタ
