@@ -5,11 +5,11 @@ public class Account {
 
 	private String accountNum; //口座番号 (問題点:違う文字が入る、桁数が違う)
 	private int zandaka; //残高
-	private String accountType; //預金種類(普通、当座、定期) (問題点 : 違う文字列が入る)
+	private accountType accountType; //預金種類(普通、当座、定期) (問題点 : 違う文字列が入る)
 
 
 	//コンストラクタ
-	public Account(String accountNum, String accountType) {
+	public Account(String accountNum, accountType accountType) {
 		this.accountNum = accountNum;
 		this.accountType = accountType;
 	}
@@ -31,7 +31,7 @@ public class Account {
 
 	}
 
-	public void setAccountType(String accountType) {
+	public void setAccountType(accountType accountType) {
 		this.accountType = accountType;
 	}
 
@@ -42,7 +42,7 @@ public class Account {
 	public int getZandaka() {
 		return this.zandaka;
 	}
-	public String getAccountType() {
+	public accountType getAccountType() {
 		return this.accountType;
 	}
 

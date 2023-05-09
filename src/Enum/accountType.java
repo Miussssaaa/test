@@ -4,6 +4,6 @@ package Enum;
 public enum accountType {
 
 	//定数と同じですべて大文字で記載
-	HUTSU,TOUZA,TEIKI;
+	FUTSU,TOUZA,TEIKI;
 
 }
