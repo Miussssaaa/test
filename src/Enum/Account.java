@@ -3,9 +3,9 @@ package Enum;
 
 public class Account {
 
-	private String accountNum; //口座番号
+	private String accountNum; //口座番号 (問題点:違う文字が入る、桁数が違う)
 	private int zandaka; //残高
-	private String accountType; //預金種類(普通、当座、定期)
+	private String accountType; //預金種類(普通、当座、定期) (問題点 : 違う文字列が入る)
 
 
 	//コンストラクタ
@@ -19,9 +19,18 @@ public class Account {
 	public void setAccountNum(String accountNum) {
 		this.accountNum = accountNum;
 	}
+
 	public void setZandaka(int zandaka) {
-		this.zandaka = zandaka;
+
+		//残高にマイナス値が入れられた時の対処
+		if(zandaka < 0) {
+			this.zandaka = 0;
+		}else {
+			this.zandaka = zandaka;
+		}
+
 	}
+
 	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
