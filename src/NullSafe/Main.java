@@ -16,6 +16,11 @@ public class Main {
 		//nullを代入する場合
 		Optional<String> op2 = Optional.ofNullable(null);
 
+		//isPresent()は値が存在するかどうか確認するもの
+		//nullにしたop2がfalseになる
+		System.out.println(op1.isPresent());
+		System.out.println(op2.isPresent());
+
 	}
 
 }
