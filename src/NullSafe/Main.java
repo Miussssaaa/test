@@ -1,5 +1,6 @@
 package NullSafe;
 
+ //nullの場合のみ特殊な処理を行うクラス
 import java.util.Optional;
 
 public class Main {
@@ -20,6 +21,14 @@ public class Main {
 		//nullにしたop2がfalseになる
 		System.out.println(op1.isPresent());
 		System.out.println(op2.isPresent());
+
+		//格納された内容を表示(中身がnullの場合例外が発生)
+		System.out.println(op1.get());
+		//System.out.println("名前 : " + op2.get());
+
+		// orElse() は中身がnullだった場合引数を表示する
+		System.out.println("名前 : " + op1.orElse("ななし"));
+		System.out.println("名前 : " + op2.orElse("ななし"));
 
 	}
 
