@@ -28,9 +28,6 @@ public class Main {
 	}
 
 
-
-
-
 	public static void main(String[] args) {
 
 		//nullが入っているかチェックしながらインスタンス生成を行う(newで生成不可)
