@@ -19,10 +19,13 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		//Functionは様々な処理を1つにまとめて、名前をつけることができるもの
+		//関数を引数に代入
 		Function<String,Integer>func = Main::len;
+//				↑引数  戻り値		   クラス名::メソッド名
 
 		//文字数格納用変数
-		int length = len("特級オブジェクト");
+		int length = func.apply("特級オブジェクト");
 
 		System.out.println(length);
 
