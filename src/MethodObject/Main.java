@@ -1,5 +1,7 @@
 package MethodObject;
 
+import java.util.function.Function;
+
 public class Main {
 
 	//第一級オブジェクト
@@ -9,8 +11,20 @@ public class Main {
 
 	//メソッドは関数の一種
 
+
+	//文字数を出力
+	public static Integer len(String s){
+		return s.length();
+	}
+
 	public static void main(String[] args) {
 
+		Function<String,Integer>func = Main::len;
+
+		//文字数格納用変数
+		int length = len("特級オブジェクト");
+
+		System.out.println(length);
 
 	}
 
