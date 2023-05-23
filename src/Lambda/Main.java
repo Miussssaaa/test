@@ -2,6 +2,7 @@ package Lambda;
 
 import java.util.Date;
 import java.util.function.Function;
+import java.util.function.IntBinaryOperator;
 import java.util.function.Supplier;
 
 public class Main {
@@ -16,6 +17,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		//ラムダ式 : その場で関数を作る (実行された瞬間から作られる)
+		//メソッドの作成とやることが同じ
 		Function<String,Integer>func = (String s) -> {return s.length();};
 		//								↑引数(String) ↑戻り値(int)
 
@@ -30,6 +32,9 @@ public class Main {
 
 
 		//メソッドaddを格納する関数オブジェクトの作成
+		IntBinaryOperator opr = Main::add;
+		int ans = opr.applyAsInt(5, 6);
+		System.out.println(ans);
 
 
 	}
