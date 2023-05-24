@@ -4,7 +4,9 @@ package Lambda;
 //T→template R→returnの略 大文字の英語に特に指定はない(アルファベット順に記述されていればOK)
 public interface TriFunction <T>{
 
-//↓戻り値の型
+
+//MainクラスでTriFunctionを使っている Mainクラスはこの形式に従う
+//  ↓戻り値の型 ↓引数の型
 	int apply(T t, int u, int v);
 
 }
