@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 
 //わかりやすいサイト
 //https://www.yoheim.net/blog.php?q=20160410
+//https://www.ne.jp/asahi/hishidama/home/tech/java/functionalinterface.html
 
 public class Main {
 
@@ -16,6 +17,9 @@ public class Main {
 	//aとbの合計を出力する
 	public static int add(int a,int b) {
 		return a+b;
+	}
+	public static int hiku(int a,int b) {
+		return a-b;
 	}
 
 
@@ -44,6 +48,10 @@ public class Main {
     			System.out.println(str);
     			return n;   // 戻り値が必要な関数型インターフェースの場合はreturnを記述
 			}
+
+			引数1つ　Function<T, R>	(T) -> R	Tを受け取ってR(処理)を返す関数
+			引数2つ　BiFunction<T,U,R> (T,U) -> R　　T,Uを受け取ってR(処理)を返す関数
+			引数3つ　TriFunction<T,U,V,R>  (T,U,V) -> R  T,U,Vを受け取ってR(処理)を返す関数
 
 		 */
 
@@ -75,7 +83,7 @@ public class Main {
 		//メソッドaddを格納する関数オブジェクトの作成
 		//引数2つ 戻り値:int型
 
-		//「IntBinaryOperator」int型の引数を2つ取り、int型の戻り値を1つ返す抽象メソッドを持つ
+		//「IntBinaryOperator」int型の引数を2つ取り、int型の戻り値を1つ返すメソッドを代入できる
 		//変数oprにaddメソッドを代入(addメソッドは引数が2つだから？
 		IntBinaryOperator opr = Main::add;
 
@@ -88,22 +96,34 @@ public class Main {
 
 
 		//TriFunctionは引数が3つ以上存在する場合に使う
+		//※BiFunctionは引数が2つ
 		//インターフェースである 同パッケージ内にTriFunctionのインターフェースを作成
 		//tfにラムダ式代入 tfが利用された時、波カッコ内の処理が実行される
 		TriFunction<IntBinaryOperator> tf = (IntBinaryOperator ib , int a, int b) -> {
 
-			//変数resultに
+
+			//【見る順番②】
+			//①変数resultに代入
+			//②この場合、引数ibに「addメソッドが入ったopr」が代入される
+			//③applyAsIntで変数ibの中身のaddが実行される
+			//④実質 opr.applyAsInt(add{1+2}) + opr.applyAsInt(add{1+2})
 			int result = ib.applyAsInt(a,b) + ib.applyAsInt(a,b);
 			return result;
+
 		};
 
-		//System.out.println(tf.get(opr,1,2));
+
+		//【見る順番①】
+		//applyで関数を実行する
+		//addメソッドを代入したopr、1と2を引数にして実行
+		System.out.println(tf.apply(opr,1,2));
 
 
 //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 
 		//【省略記法】
+		//※IntToDoubleFunctionはintを受け取ってdoubleを返す関数
 
 		//省略なしver
 		IntToDoubleFunction normal = (int x) -> {return x * x * 3.14;};
