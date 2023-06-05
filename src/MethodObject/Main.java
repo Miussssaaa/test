@@ -53,10 +53,10 @@ public class Main {
 		cons.accept(bFunc.apply("java.version", "keyが正しくありません"));
 
 
-		
+
 		//関数インターフェ―スを使用することで柔軟に関数オブジェクトを代入できる
-		
-		
+
+
 
 		//文字数格納用変数
 		int length = func.apply("特級オブジェクト");

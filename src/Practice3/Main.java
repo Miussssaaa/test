@@ -11,10 +11,45 @@ public class Main {
 	 */
 
 
+	//FuncListをインスタンス生成
+	FuncList list = new FuncList();
+
+	//奇数か判別する関数を代入
+	Func1 f1 = FuncList::isodd;
+
+	//合格か不合格か判別するメソッドを代入
+	Func2<String> f2 = list::passCheck;
+
+	//applyで実行  奇数だったらtrue 偶数だったらfalse
+	System.out.println(f1.apply(5));
+
+	//applyで実行  合格基準の点数に達していれば「合格」と出る
+	System.out.println(f2.apply(40, "おもち"));
+
+
+
+//============================================================
+
+
+
 	/* 練習3-1におけるFuncListクラスの2つのメソッドの内容について、
 	 * それぞれラムダ式で表現し、インタフェースFunc1とFunc2に代入して利用するよう
 	 * 練習3-1で作成したMain クラスを書き換えてください。
 	 */
+
+
+	Func1 f3 = (int x) -> { return (x % 2 == 1); };
+
+	//戻り値を返すだけの場合(一行だけ)、波カッコとreturnを省略可能
+	//Func1 f5 = (x) -> x % 2 == 1;
+
+	Func2<String> f4 = (int point, String name) ->
+	{return point + "点  " + name + "さんは" + (point>65?"合格":"不合格"); };
+
+	//戻り値を返すだけの場合(一行だけ)、波カッコとreturnを省略可能
+	//Func2<String> f6 = (point, name) -> point + "点  " + name + "さんは" + (point>65?"合格":"不合格");
+
+
 
 
 
