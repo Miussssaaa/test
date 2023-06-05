@@ -1,5 +1,7 @@
 package Practice3;
 
+import java.util.function.IntPredicate;
+
 public class Main {
 	public static void main(String[] args) {
 
@@ -52,6 +54,22 @@ public class Main {
 	System.out.println(f3.apply(4));
 	System.out.println(f4.apply(85,"カンガルー"));
 
+
+
+//===============================================================
+
+
+	/* 練習3-2のFunc1のラムダ式について、代入先の型をFunc1ではなく、
+	 * 標準関数インタフェースに変更します。用いるべき適切な型をAPIリファレンスで調べ、
+	 * プログラムを変更してください。
+	 */
+
+
+	//IntPredicate int型の引数でbooleanの戻り値を返す関数オブジェクト
+	IntPredicate pi = (x) ->  x % 2 == 1 ;
+
+	//IntPredicateの場合、applyでなくtestを使用する
+	System.out.println(pi.test(5));
 
 
 	}
