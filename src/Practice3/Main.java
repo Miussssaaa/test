@@ -49,7 +49,8 @@ public class Main {
 	//戻り値を返すだけの場合(一行だけ)、波カッコとreturnを省略可能
 	//Func2<String> f6 = (point, name) -> point + "点  " + name + "さんは" + (point>65?"合格":"不合格");
 
-
+	System.out.println(f3.apply(4));
+	System.out.println(f4.apply(85,"カンガルー"));
 
 
 
