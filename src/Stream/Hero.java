@@ -12,6 +12,7 @@ public class Hero implements Comparable<Hero> , Cloneable{
 	//コンストラクタ
 	public Hero(String name) {
 		this.name = name;
+		this.hp = 10; //Main用に付け足し
 	}
 
 	//getterメソッド
