@@ -2,6 +2,7 @@ package Stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class Main {
@@ -17,6 +18,7 @@ public class Main {
 		}
 
 		System.out.println(list);
+
 
 
 		//①Heroのうち一人をHP0にする
@@ -45,7 +47,69 @@ public class Main {
 		});
 
 
-/*		boolean isKnockOut = false; //HP0がいるか
+		System.out.println("");
+
+
+		/* Optional
+		 * null以外の値が含まれている場合も含まれていない場合もある
+		 * 値が存在する場合、isPresent()はtrueを返し、get()は値を返します。
+		 * 含まれる値の有無に応じて追加メソッドが提供されます。
+		 * たとえば、orElse() (値が存在しない場合にデフォルト値を返す)
+		 * ifPresent() (値が存在する場合にコードのブロックを実行する)など。
+		 */
+
+
+		//最初の要素を取得(Null安全性考慮)
+		Optional<Hero> op1 = list.stream().findFirst();
+
+		//中身が空かどうか確認
+		if(op1.isPresent()) {
+			System.out.println("最初の要素 : " + op1.get().getName());
+		}
+
+		//最大値を格納している要素
+		list.get(12).setHP(50);
+
+		//listに格納されている最大の要素を取得
+		Optional<Hero> op2 = list.stream().max((h1,h2) -> h1.getHP() - h2.getHP());
+
+		//中身が空かどうか確認
+		if(op2.isPresent()) {
+			System.out.println("HP最大の要素 : " + op2.get().getName());
+		}
+
+
+
+		//勇者の名前を格納したリストを作成
+		//①listから取得する（新規インスタンス生成しない）
+		//②HPが5の勇者からのみ取得する
+		//③最大3人に限定する
+
+		list.get(2).setHP(5);
+		list.get(3).setHP(5);
+		list.get(4).setHP(5);
+
+
+		List<String> heroName = new ArrayList();
+
+		for(Hero h : list) {
+
+			if(h.getHP() == 5) {
+				heroName.add(h.getName());
+
+				if(heroName.size() <= 3) {
+					break;
+				}
+			}
+
+		}
+
+		System.out.println(heroName);
+
+
+
+
+		/*		boolean isKnockOut = false; //HP0がいるか
 		String KnockOutHero = "不在"; //HP0の名前
 
 
@@ -62,7 +126,7 @@ public class Main {
 
 		System.out.println("倒れたヒーローの有無 : " + isKnockOut);
 		System.out.println("倒れたヒーロー : " + KnockOutHero);
-*/
+		 */
 
 
 	}
