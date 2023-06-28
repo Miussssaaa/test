@@ -3,6 +3,7 @@ package Stream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -78,6 +79,11 @@ public class Main {
 			System.out.println("HP最大の要素 : " + op2.get().getName());
 		}
 
+		System.out.println("");
+
+
+//===================================================================================
+
 
 
 		//勇者の名前を格納したリストを作成
@@ -90,26 +96,57 @@ public class Main {
 		list.get(4).setHP(5);
 
 
+		//String型の可変長配列(勇者名を代入する配列
 		List<String> heroName = new ArrayList();
 
-		for(Hero h : list) {
+		for(Hero h : list) { //拡張for文
 
+			//HPが5の場合
 			if(h.getHP() == 5) {
-				heroName.add(h.getName());
+				heroName.add(h.getName()); //可変長配列に該当する勇者の名前を追加
 
-				if(heroName.size() <= 3) {
+				//可変長配列の大きさが3以上の場合処理を終了
+				if(heroName.size() >= 3) {
 					break;
 				}
 			}
-
 		}
 
-		System.out.println(heroName);
+		System.out.println(heroName); //勇者の名前を全部出力
 
 
 
+//============================================================================
 
-		/*		boolean isKnockOut = false; //HP0がいるか
+		//省略記法
+
+
+
+		List<String> heroName2 = list.stream()
+
+		//条件から抽出する(HPが5の勇者)
+		.filter(h -> h.getHP() == 5)
+
+		//抽出上限を決める (3つまで)
+		.limit(3)
+
+		//格納する値を決める(勇者の名前)
+		.map(h -> h.getName())
+
+		//List<↑で格納した値の型>にキャスト (型変換)
+		.collect(Collectors.toList()) ;
+
+
+		heroName2.forEach(name ->{
+
+			System.out.println(name);
+
+		});
+
+
+
+	/*
+		boolean isKnockOut = false; //HP0がいるか
 		String KnockOutHero = "不在"; //HP0の名前
 
 
