@@ -3,7 +3,7 @@ package FileControl;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Main {
+public class Write {
 
 	public static void main(String[] args) throws IOException{
 
@@ -21,9 +21,6 @@ public class Main {
 
 		//ファイルを閉じる
 		fw.close();
-
-
-
 
 	}
 
