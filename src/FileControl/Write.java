@@ -5,16 +5,17 @@ import java.io.IOException;
 
 public class Write {
 
+	//このメソッド内でエラーが出たら、呼び出し元にエラーを丸投げする
 	public static void main(String[] args) throws IOException{
 
-		//ファイルを開くのは編集権限を持つという解釈でよい
+		//ファイルを開くのは編集権限を持つという解釈
 		//開く、閉じるの一連の動作はニュース番組の生中継(違う地点から)を想像すると良い
 
 		//ファイルを開く準備
 		FileWriter fw = new FileWriter("writeTest.dat", true);
 
 		//書き込み(依頼) 機械がキリの良いタイミングで書き込む、そのため時間が不定
-		fw.write('A');
+		fw.write('B');
 
 		//書き込み(今すぐ) ↑と異なり今すぐ書き込むように命令できる
 		fw.flush();
