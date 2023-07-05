@@ -11,17 +11,43 @@ public class Write {
 		//ファイルを開くのは編集権限を持つという解釈
 		//開く、閉じるの一連の動作はニュース番組の生中継(違う地点から)を想像すると良い
 
-		//ファイルを開く準備
-		FileWriter fw = new FileWriter("writeTest.dat", true);
 
-		//書き込み(依頼) 機械がキリの良いタイミングで書き込む、そのため時間が不定
-		fw.write('B');
+		FileWriter fw = null;
 
-		//書き込み(今すぐ) ↑と異なり今すぐ書き込むように命令できる
-		fw.flush();
 
-		//ファイルを閉じる
-		fw.close();
+		try {  //通常行う処理
+
+			//ファイルを開く準備	第二引数はそのまま追記するかどうか
+			//trueにすると AABA…と連なっていく falseにすると一文字のみ
+			fw = new FileWriter("writeTest.dat",true);
+			//書き込み(依頼) 機械がキリの良いタイミングで書き込む、そのため時間が不定
+
+			fw.write(90);
+
+			//書き込み(今すぐ) ↑と異なり今すぐ書き込むように命令できる
+			fw.flush();
+
+		}catch(Exception e) { //例外処理 (通常処理中でエラーが出た時にやする処理)
+
+			System.out.println(e.getMessage());
+
+		}finally{ //エラーがあってもなくても最終的に呼び出されるコード
+
+
+			if(fw != null) { //fwがnullじゃない時
+
+				//try-catch文でさらに例外対策
+				try {
+					fw.close(); //ファイルを閉じる
+				}catch(Exception e) {
+					//我々にできることはない(直せるところがない)
+				}
+			}
+
+		}
+
+
+
 
 	}
 
