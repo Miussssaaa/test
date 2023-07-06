@@ -29,6 +29,9 @@ public class Read {
 		//文字が何もない時は文字コードが-1になる
 		while(i != -1) {
 			i = fr.read();  //読み込み
+
+			i = i>>1; //復号化
+
 			char c = (char)i;  //文字コードをcharに変換
 			str += c;  //文字列を結合
 		}

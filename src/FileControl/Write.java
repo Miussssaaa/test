@@ -22,7 +22,11 @@ public class Write {
 			fw = new FileWriter("writeTest.dat",true);
 			//書き込み(依頼) 機械がキリの良いタイミングで書き込む、そのため時間が不定
 
-			fw.write(90);
+			int rock = 65;
+			rock = rock << 1; //暗号化(シフト演算)
+
+			//文字コードをシフト演算して暗号化した数を書き込む
+			fw.write(rock);
 
 			//書き込み(今すぐ) ↑と異なり今すぐ書き込むように命令できる
 			fw.flush();
@@ -42,6 +46,7 @@ public class Write {
 				}catch(Exception e) {
 					//我々にできることはない(直せるところがない)
 				}
+
 			}
 
 		}
