@@ -1,12 +1,18 @@
 package FileControl;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.Cipher;
+import javax.crypto.CipherOutputStream;
+import javax.crypto.NoSuchPaddingException;
 
 public class encrypt {
-	public static void main(String[]args) throws IOException{
+	public static void main(String[]args) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException{
 
 		String msg = "吾輩は猫である";
 
@@ -28,5 +34,15 @@ public class encrypt {
 		}
 
 
+		//ファイル書き込み用ストリーム
+		FileOutputStream fos = new FileOutputStream("data.dat");
+
+		//暗号方式と生成方式などを指定している
+	    Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
+
+	    //暗号化
+		CipherOutputStream cos  = new CipherOutputStream(fos,c);
+
+		cos.write(65);
 	}
 }
