@@ -11,6 +11,7 @@ public class Read {
 		//開く、閉じるの一連の動作はニュース番組の生中継(違う地点から)を想像すると良い
 
 		//ファイルを読み込む準備
+		//FileReaderはファイルの先頭から一文字ずつデータを読み取る
 		FileReader fr = new FileReader("writeTest.dat");
 
 		//ファイルを読み込み
