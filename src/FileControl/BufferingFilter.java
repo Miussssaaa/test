@@ -17,10 +17,19 @@ public class BufferingFilter {
 		//少量で何度も書き込み要求をするより、一度で終わらせる方が効率がいい
 		BufferedReader br = new BufferedReader(fr);
 
-		String line = null;
 
-		line = br.readLine();
-		System.out.println(line);
+/*		//一行目を読み込み
+		String line = br.readLine();
+
+		//行の内容が空じゃない時に繰り返す
+		while(line != null) {
+			System.out.println(line); //表示
+			line = br.readLine(); //次の行(無ければnullが入る)
+		}
+*/
+
+		//読み込んだファイルの要素分だけ繰り返す(forEach文)
+		br.lines().forEach( (String s) -> {System.out.println(s);} );
 
 
 	}
