@@ -14,7 +14,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
-public class encrypt {
+public class Encrypt {
 	public static void main(String[]args) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException{
 
 		String msg = "吾輩は猫である";
